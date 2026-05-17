@@ -26,7 +26,7 @@
         .scrollbar-thin::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 transition-colors duration-300">
+<body class="transition-colors duration-300">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -150,7 +150,7 @@
             };
 
             return (
-                <div className={`min-h-screen transition-colors duration-300 pb-12 ${darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'}`}>
+                <div className={`min-h-screen transition-colors duration-300 py-0 sm:py-8 flex flex-col justify-center ${darkMode ? 'bg-slate-950' : 'bg-slate-100'}`}>
                     
                     {/* CUSTOM MODAL CONFIRMATION RESET */}
                     {showResetModal && (
@@ -181,13 +181,13 @@
                         </div>
                     )}
 
-                    {/* MAIN CONTAINER */}
-                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* MAIN CONTAINER: Berfungsi sebagai Frame / Kartu Melayang */}
+                    <div className={`max-w-5xl w-full mx-auto px-4 sm:px-8 py-6 sm:py-8 transition-all ${darkMode ? 'bg-slate-900 sm:border sm:border-slate-800 sm:shadow-2xl sm:rounded-3xl text-slate-100' : 'bg-white sm:border sm:border-slate-200 sm:shadow-xl sm:rounded-3xl text-slate-800'}`}>
                         
                         {/* HEADER */}
-                        <header className={`pt-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
+                        <header className={`mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
                             <div className="flex items-center gap-3">
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md ${darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-white border border-slate-200'}`}>
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md ${darkMode ? 'bg-slate-950 border border-slate-800' : 'bg-slate-50 border border-slate-200'}`}>
                                     <img 
                                         src="LOGO%20IGD.png" 
                                         alt="Logo IGD" 
@@ -209,14 +209,14 @@
                             <div className="flex items-center gap-2">
                                 <button 
                                     onClick={() => setDarkMode(!darkMode)} 
-                                    className={`p-2.5 rounded-xl border transition-all ${darkMode ? 'bg-slate-900 border-slate-800 text-yellow-400 hover:bg-slate-800' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}
+                                    className={`p-2.5 rounded-xl border transition-all ${darkMode ? 'bg-slate-950 border-slate-800 text-yellow-400 hover:bg-slate-800' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'}`}
                                     title="Toggle Mode"
                                 >
                                     <Icon name={darkMode ? "sun" : "moon"} size={18} />
                                 </button>
                                 <button 
                                     onClick={() => setShowResetModal(true)} 
-                                    className={`p-2.5 rounded-xl border transition-all ${darkMode ? 'bg-slate-900 border-slate-800 text-red-400 hover:bg-red-500/10' : 'bg-white border-slate-200 text-red-500 hover:bg-red-50'}`}
+                                    className={`p-2.5 rounded-xl border transition-all ${darkMode ? 'bg-slate-950 border-slate-800 text-red-400 hover:bg-red-500/10' : 'bg-slate-50 border-slate-200 text-red-500 hover:bg-red-100'}`}
                                     title="Hapus Form"
                                 >
                                     <Icon name="trash-2" size={18} />
@@ -238,47 +238,47 @@
                             <div className="lg:col-span-7 space-y-6">
                                 
                                 {/* Identitas Pasien */}
-                                <div className={`p-5 rounded-2xl border transition-colors shadow-sm ${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'}`}>
-                                    <h2 className={`text-sm font-extrabold mb-4 flex items-center gap-2 uppercase border-b pb-2 ${darkMode ? 'text-blue-400 border-slate-800' : 'text-blue-800 border-slate-100'}`}>
+                                <div className={`p-5 rounded-2xl border transition-colors shadow-sm ${darkMode ? 'bg-slate-950 border-slate-850' : 'bg-slate-50 border-slate-200'}`}>
+                                    <h2 className={`text-sm font-extrabold mb-4 flex items-center gap-2 uppercase border-b pb-2 ${darkMode ? 'text-blue-400 border-slate-800' : 'text-blue-800 border-slate-200/60'}`}>
                                         <Icon name="user" size={16} /> Identitas Pasien
                                     </h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">Nama Pasien</label>
-                                            <input name="name" value={patientInfo.name} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Nama Lengkap..." />
+                                            <input name="name" value={patientInfo.name} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Nama Lengkap..." />
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">Usia</label>
-                                            <input name="age" value={patientInfo.age} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Usia (Th)..." />
+                                            <input name="age" value={patientInfo.age} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Usia (Th)..." />
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">BB (Kg)</label>
-                                            <input name="bb" value={patientInfo.bb} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Berat Badan..." />
+                                            <input name="bb" value={patientInfo.bb} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Berat Badan..." />
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">Pembiayaan</label>
-                                            <input name="paymentType" value={patientInfo.paymentType} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="BPJS / Umum / Asuransi..." />
+                                            <input name="paymentType" value={patientInfo.paymentType} onChange={handlePatientInfoChange} className={`w-full mt-1 p-2.5 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="BPJS / Umum / Asuransi..." />
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* S - Subjective */}
-                                <div className={`p-5 rounded-2xl border transition-colors shadow-sm ${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'}`}>
-                                    <h2 className={`text-sm font-extrabold mb-4 flex items-center gap-2 uppercase border-b pb-2 ${darkMode ? 'text-blue-400 border-slate-800' : 'text-blue-800 border-slate-100'}`}>
+                                <div className={`p-5 rounded-2xl border transition-colors shadow-sm ${darkMode ? 'bg-slate-950 border-slate-850' : 'bg-slate-50 border-slate-200'}`}>
+                                    <h2 className={`text-sm font-extrabold mb-4 flex items-center gap-2 uppercase border-b pb-2 ${darkMode ? 'text-blue-400 border-slate-800' : 'text-blue-800 border-slate-200/60'}`}>
                                         <Icon name="file-text" size={16} /> S (Subjective)
                                     </h2>
                                     <div className="space-y-4">
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">Anamnesa Keluhan</label>
-                                            <textarea name="anamnesa" value={subjective.anamnesa} onChange={handleSubjectiveChange} className={`w-full mt-1 p-3 rounded-lg border outline-none h-20 text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Keluhan utama dan riwayat penyakit saat ini..."></textarea>
+                                            <textarea name="anamnesa" value={subjective.anamnesa} onChange={handleSubjectiveChange} className={`w-full mt-1 p-3 rounded-lg border outline-none h-20 text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Keluhan utama dan riwayat penyakit saat ini..."></textarea>
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">RPD (Riwayat Penyakit Dahulu)</label>
-                                            <input name="rpd" value={subjective.rpd} onChange={handleSubjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Hipertensi, DM, Jantung, dll..." />
+                                            <input name="rpd" value={subjective.rpd} onChange={handleSubjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Hipertensi, DM, Jantung, dll..." />
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">RPO (Riwayat Pengobatan)</label>
-                                            <input name="rpo" value={subjective.rpo} onChange={handleSubjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Obat rutin yang dikonsumsi..." />
+                                            <input name="rpo" value={subjective.rpo} onChange={handleSubjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Obat rutin yang dikonsumsi..." />
                                         </div>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                             <div>
@@ -294,7 +294,7 @@
                                 </div>
 
                                 {/* O - Objective */}
-                                <div className={`p-5 rounded-2xl border transition-colors shadow-sm ${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'}`}>
+                                <div className={`p-5 rounded-2xl border transition-colors shadow-sm ${darkMode ? 'bg-slate-950 border-slate-850' : 'bg-slate-50 border-slate-200'}`}>
                                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-2 mb-4 gap-2">
                                         <h2 className={`text-sm font-extrabold uppercase tracking-wider flex items-center gap-2 ${darkMode ? 'text-green-400' : 'text-green-700'}`}>
                                             <Icon name="activity" size={16} /> O (Objective)
@@ -305,7 +305,7 @@
                                             <button 
                                                 type="button"
                                                 onClick={() => setShowSpecialInputs(!showSpecialInputs)} 
-                                                className={`text-[10px] font-extrabold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${showSpecialInputs ? 'bg-rose-500/20 text-rose-400 border border-rose-800/30' : (darkMode ? 'bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700' : 'bg-slate-100 text-slate-600 border border-slate-200 hover:bg-slate-200')}`}
+                                                className={`text-[10px] font-extrabold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${showSpecialInputs ? 'bg-rose-500/20 text-rose-400 border border-rose-800/30' : (darkMode ? 'bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-850' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100')}`}
                                             >
                                                 <Icon name="sliders" size={12} />
                                                 <span>SKOR KHUSUS (VAS/SIRIRAJ)</span>
@@ -317,15 +317,15 @@
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div>
                                                 <label className="text-[10px] font-extrabold uppercase text-slate-400">Kesadaran</label>
-                                                <input name="kesadaran" value={objective.kesadaran} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Compos Mentis / Somnolent..." />
+                                                <input name="kesadaran" value={objective.kesadaran} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Compos Mentis / Somnolent..." />
                                             </div>
                                             <div>
                                                 <label className="text-[10px] font-extrabold uppercase text-slate-400">GCS</label>
-                                                <input name="gcs" value={objective.gcs} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm font-mono ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="E4V5M6" />
+                                                <input name="gcs" value={objective.gcs} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm font-mono ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="E4V5M6" />
                                             </div>
                                         </div>
 
-                                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                                        <div className="pt-2 border-t border-slate-100 dark:border-slate-850">
                                             <h3 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">Vital Signs & Metabolisme</h3>
                                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                                 {[
@@ -339,49 +339,49 @@
                                                 ].map(v => (
                                                     <div key={v.n} className={v.n === 'crt' ? 'col-span-2 sm:col-span-1' : ''}>
                                                         <label className="text-[10px] font-extrabold uppercase text-slate-400">{v.l}</label>
-                                                        <input name={v.n} value={objective[v.n]} onChange={handleObjectiveChange} className={`w-full mt-0.5 p-2 rounded-lg border text-sm font-mono focus:ring-2 focus:ring-green-400 outline-none ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder={v.p} />
+                                                        <input name={v.n} value={objective[v.n]} onChange={handleObjectiveChange} className={`w-full mt-0.5 p-2 rounded-lg border text-sm font-mono focus:ring-2 focus:ring-green-400 outline-none ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder={v.p} />
                                                     </div>
                                                 ))}
                                             </div>
                                         </div>
 
                                         {showSpecialInputs && (
-                                            <div className={`grid grid-cols-2 gap-3 p-3.5 rounded-xl border animate-in slide-in-from-top-2 duration-300 ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
+                                            <div className={`grid grid-cols-2 gap-3 p-3.5 rounded-xl border animate-in slide-in-from-top-2 duration-300 ${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'}`}>
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-yellow-500">VAS (Nyeri)</label>
-                                                    <input name="vas" value={objective.vas} onChange={handleObjectiveChange} className={`w-full mt-1 p-2 rounded-lg border text-sm font-bold ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-white border-slate-200'}`} placeholder="Skala 0-10" />
+                                                    <input name="vas" value={objective.vas} onChange={handleObjectiveChange} className={`w-full mt-1 p-2 rounded-lg border text-sm font-bold ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Skala 0-10" />
                                                 </div>
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-yellow-500">Skor Siriraj</label>
-                                                    <input name="siriraj" value={objective.siriraj} onChange={handleObjectiveChange} className={`w-full mt-1 p-2 rounded-lg border text-sm font-bold ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-white border-slate-200'}`} placeholder="Hasil skor..." />
+                                                    <input name="siriraj" value={objective.siriraj} onChange={handleObjectiveChange} className={`w-full mt-1 p-2 rounded-lg border text-sm font-bold ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Hasil skor..." />
                                                 </div>
                                             </div>
                                         )}
 
-                                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-3">
+                                        <div className="pt-2 border-t border-slate-100 dark:border-slate-850 space-y-3">
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-slate-400">Pupil & Refleks Cahaya (RC)</label>
-                                                    <input name="pupil" value={objective.pupil} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Isokor, RC +/+, 3mm/3mm..." />
+                                                    <input name="pupil" value={objective.pupil} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Isokor, RC +/+, 3mm/3mm..." />
                                                 </div>
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-slate-400">Suara Jantung</label>
-                                                    <input name="suaraJantung" value={objective.suaraJantung} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="S1 S2 tunggal, bising (-)..." />
+                                                    <input name="suaraJantung" value={objective.suaraJantung} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="S1 S2 tunggal, bising (-)..." />
                                                 </div>
                                             </div>
                                             <div>
                                                 <label className="text-[10px] font-extrabold uppercase text-slate-400 block mb-1">Thorax (Dada & Paru)</label>
-                                                <input name="thorax" value={objective.thorax} onChange={handleObjectiveChange} className={`w-full p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Vesikuler (+/+), Ronchi (-/-), Wheezing (-/-)..." />
+                                                <input name="thorax" value={objective.thorax} onChange={handleObjectiveChange} className={`w-full p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Vesikuler (+/+), Ronchi (-/-), Wheezing (-/-)..." />
                                             </div>
                                             <div>
                                                 <label className="text-[10px] font-extrabold uppercase text-slate-400">Abdomen (Perut)</label>
-                                                <input name="abdomen" value={objective.abdomen} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Supel, BU (+) normal, NT (-)..." />
+                                                <input name="abdomen" value={objective.abdomen} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Supel, BU (+) normal, NT (-)..." />
                                             </div>
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-slate-400 block mb-2">Kekuatan Otot</label>
-                                                    <div className={`grid grid-cols-2 gap-1.5 w-full max-w-[180px] p-2.5 rounded-xl border shadow-inner ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-100 border-slate-200'}`}>
+                                                    <div className={`grid grid-cols-2 gap-1.5 w-full max-w-[180px] p-2.5 rounded-xl border shadow-inner ${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-slate-100 border-slate-200'}`}>
                                                         {['ul', 'ur', 'll', 'lr'].map((pos, i) => (
                                                             <React.Fragment key={pos}>
                                                                 <div className="relative">
@@ -400,7 +400,7 @@
                                                 </div>
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-slate-400">Eksposure / Temuan Lain</label>
-                                                    <textarea name="eksposure" value={objective.eksposure} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border h-[84px] text-sm ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Luka, edema, deformitas, dll..."></textarea>
+                                                    <textarea name="eksposure" value={objective.eksposure} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border h-[84px] text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Luka, edema, deformitas, dll..."></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -408,25 +408,25 @@
                                 </div>
                                 
                                 {/* A & P */}
-                                <div className={`p-5 rounded-2xl border flex flex-col space-y-4 transition-colors shadow-sm ${darkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'}`}>
+                                <div className={`p-5 rounded-2xl border flex flex-col space-y-4 transition-colors shadow-sm ${darkMode ? 'bg-slate-950 border-slate-850' : 'bg-slate-50 border-slate-200'}`}>
                                     <div>
                                         <h2 className="text-xs font-black mb-2 text-purple-500 uppercase tracking-widest border-b border-purple-500/20 pb-1 flex items-center gap-1.5">
                                             <Icon name="activity" size={14} /> A (Assessment)
                                         </h2>
-                                        <textarea value={assessment} onChange={e => setAssessment(e.target.value)} className={`w-full p-3 rounded-lg border h-20 text-sm italic transition-colors ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Diagnosis medis utama / sekunder..."></textarea>
+                                        <textarea value={assessment} onChange={e => setAssessment(e.target.value)} className={`w-full p-3 rounded-lg border h-20 text-sm italic transition-colors ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Diagnosis medis utama / sekunder..."></textarea>
                                     </div>
                                     <div>
                                         <h2 className="text-xs font-black mb-2 text-orange-500 uppercase tracking-widest border-b border-orange-500/20 pb-1 flex items-center gap-1.5">
                                             <Icon name="clipboard-list" size={14} /> P (Plan)
                                         </h2>
-                                        <textarea value={plan} onChange={e => setPlan(e.target.value)} className={`w-full p-3 rounded-lg border h-24 text-sm transition-colors ${darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Rencana terapi, instruksi obat, monitoring..."></textarea>
+                                        <textarea value={plan} onChange={e => setPlan(e.target.value)} className={`w-full p-3 rounded-lg border h-24 text-sm transition-colors ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Rencana terapi, instruksi obat, monitoring..."></textarea>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* LIVE PREVIEW COLUMN (KANAN) */}
+                            {/* LIVE PREVIEW COLUMN (KANAN) - Diganti Menjadi Lebih Ringkas & Presisi */}
                             <div className="lg:col-span-5 lg:sticky lg:top-6">
-                                <div className="bg-slate-900 rounded-2xl border border-slate-800 shadow-xl flex flex-col overflow-hidden h-[calc(100vh-140px)] min-h-[480px]">
+                                <div className="bg-slate-900 rounded-2xl border border-slate-850 shadow-xl flex flex-col overflow-hidden h-[520px]">
                                     
                                     {/* PREVIEW HEADER */}
                                     <div className="p-3 bg-slate-850 border-b border-slate-800 flex justify-between items-center z-10">
