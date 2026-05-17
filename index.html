@@ -181,24 +181,25 @@
                         </div>
                     )}
 
-                    {/* MAIN CONTAINER: Berfungsi sebagai Frame / Kartu Melayang */}
+                    {/* MAIN CONTAINER */}
                     <div className={`max-w-5xl w-full mx-auto px-4 sm:px-8 py-6 sm:py-8 transition-all ${darkMode ? 'bg-slate-900 sm:border sm:border-slate-800 sm:shadow-2xl sm:rounded-3xl text-slate-100' : 'bg-white sm:border sm:border-slate-200 sm:shadow-xl sm:rounded-3xl text-slate-800'}`}>
                         
                         {/* HEADER */}
                         <header className={`mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
                             <div className="flex items-center gap-3">
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md ${darkMode ? 'bg-slate-950 border border-slate-800' : 'bg-slate-50 border border-slate-200'}`}>
+                                {/* LOGO TANPA BACKGROUND CONTAINER */}
+                                <div className="w-10 h-10 flex items-center justify-center">
                                     <img 
                                         src="LOGO%20IGD.png" 
                                         alt="Logo IGD" 
-                                        className="w-7 h-7 object-contain"
+                                        className="w-full h-full object-contain"
                                         onError={(e) => {
                                             e.target.style.display = 'none';
                                             e.target.nextSibling.style.display = 'block';
                                         }}
                                     />
                                     <div style={{display: 'none'}} className={darkMode ? 'text-blue-400' : 'text-blue-600'}>
-                                        <Icon name="stethoscope" size={24} />
+                                        <Icon name="stethoscope" size={28} />
                                     </div>
                                 </div>
                                 <div>
@@ -424,7 +425,7 @@
                                 </div>
                             </div>
 
-                            {/* LIVE PREVIEW COLUMN (KANAN) - Diganti Menjadi Lebih Ringkas & Presisi */}
+                            {/* LIVE PREVIEW COLUMN (KANAN) */}
                             <div className="lg:col-span-5 lg:sticky lg:top-6">
                                 <div className="bg-slate-900 rounded-2xl border border-slate-850 shadow-xl flex flex-col overflow-hidden h-[520px]">
                                     
