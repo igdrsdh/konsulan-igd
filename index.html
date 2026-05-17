@@ -273,15 +273,15 @@
                                     <div className="space-y-4">
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">Anamnesa Keluhan</label>
-                                            <textarea name="anamnesa" value={subjective.anamnesa} onChange={handleSubjectiveChange} className={`w-full mt-1 p-3 rounded-lg border outline-none h-20 text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Keluhan utama dan riwayat penyakit saat ini..."></textarea>
+                                            <textarea name="anamnesa" value={subjective.anamnesa} onChange={handleSubjectiveChange} className={`w-full mt-1 p-3 rounded-lg border outline-none h-36 text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Keluhan utama dan riwayat penyakit saat ini..."></textarea>
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">RPD (Riwayat Penyakit Dahulu)</label>
-                                            <input name="rpd" value={subjective.rpd} onChange={handleSubjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Hipertensi, DM, Jantung, dll..." />
+                                            <textarea name="rpd" value={subjective.rpd} onChange={handleSubjectiveChange} className={`w-full mt-1 p-3 rounded-lg border outline-none h-24 text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Hipertensi, DM, stroke, penyakit jantung, dll..."></textarea>
                                         </div>
                                         <div>
                                             <label className="text-[10px] font-extrabold uppercase text-slate-400">RPO (Riwayat Pengobatan)</label>
-                                            <input name="rpo" value={subjective.rpo} onChange={handleSubjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Obat rutin yang dikonsumsi..." />
+                                            <textarea name="rpo" value={subjective.rpo} onChange={handleSubjectiveChange} className={`w-full mt-1 p-3 rounded-lg border outline-none h-24 text-sm ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-white border-slate-200'}`} placeholder="Obat rutin yang dikonsumsi sebelumnya..."></textarea>
                                         </div>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                             <div>
@@ -356,7 +356,7 @@
                                                 </div>
                                                 <div>
                                                     <label className="text-[10px] font-extrabold uppercase text-yellow-500">Skor Siriraj</label>
-                                                    <input name="siriraj" value={objective.siriraj} onChange={handleObjectiveChange} className={`w-full mt-1 p-2 rounded-lg border text-sm font-bold ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Hasil skor..." />
+                                                    <input name="siriraj" value={objective.siriraj} onChange={handleObjectiveChange} className={`w-full mt-1 p-2.5 rounded-lg border text-sm font-bold ${darkMode ? 'bg-slate-900 border-slate-850 text-white' : 'bg-slate-50 border-slate-200'}`} placeholder="Hasil skor..." />
                                                 </div>
                                             </div>
                                         )}
